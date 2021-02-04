@@ -1,11 +1,12 @@
 class User < ApplicationRecord
-  validates :name, :username, presence: true
+  has_secure_password
+  has_many :articles, class_name: 'Article', foreign_key: 'author_id'
+  has_many :votes, foreign_key: 'user_id', class_name: 'Vote', dependent: :destroy
 
-  has_many :articles, foreign_key: :author_id, source: :articles
-  has_many :votes
+  validates :username,
+            presence: true,
+            length: { minimum: 3 },
+            uniqueness: { case_sensitive: false }
 
-  def self.myself?(user_id, logged_user)
-    @user = User.find(user_id)
-    return false unless @user.id != logged_user
-  end
+  validates :password, length: { minimum: 7 }
 end

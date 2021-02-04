@@ -1,70 +1,30 @@
 class UsersController < ApplicationController
+  before_action :current_user, only: %i[show edit]
+  before_action :authenticate_user, except: %i[new create]
+  def new
+    @user = User.new
+  end
 
-    def index
-        @users = User.all.order(:name)
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      # Save the user created to session for something later
+      # We call the key 'user_id' stored in the session hash
+      session[:user_id] = @user.id
+      session[:username] = @user.username
+
+      redirect_to articles_path, notice: 'Your account has been created successfully!!!'
+
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect_to action: :new
     end
-
-     def new 
-        @user = User.new
-    end
-
-    def create 
-        @user = User.new(user_params)
-
-        if @user.save
-          session[:current_user] = @user
-          redirect_to user_path(@user), notice: 'User is created successfully'
-        else
-            render new_user_path, notice: 'Something is wrong.'
-        end
-    end
-
-    def signin
-        @user = User.find_by(username: params[:username])
-        if !user.nil? 
-            session[:current_user] = @user
-            redirect_to root_path
-        else
-            redirect_to login_path, notice: 'No user is found'
-        end
-    end
-
-    def edit
-
-    end
-
-    def update 
-        if @user.update(user_params)
-            redirect_to user_path, notice: 'Updated successfully'
-        else
-            redirect_to edit_user_path(@user), notice: 'Cannot update'
-        end
-    end
-
-    def logout
-        reset_session
-        redirect_to root_path
-    end
+  end
 
   private
-  
+
   def user_params
-    params.require(:user).permit(:name, :username)
-  end
-
-  def find_user
-    if params[:id].nil?
-      flash[:notice] = 'user is invalid'
-    else
-      @user = User.find(params[:id])
-    end
-  end
-
-  def signin_params
-    params.require(:user).permit(:username)
-  end
-
-  def user_loggedin?
-    redirect_to login_path if session[:current_user].nil?
+    params.require(:user).permit(:username, :password)
   end
 end

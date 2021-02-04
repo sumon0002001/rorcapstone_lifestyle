@@ -1,37 +1,29 @@
 module ArticlesHelper
-  def show_articles(category)
-    article = category.most_recent_article[0]
-    render partial: 'no-article', locals: {} if article.blank?
-    render partial: 'article', locals: { article: article, category: category } unless article.blank?
+  def featured_title(article)
+    article.try(:title)
   end
 
-  def article_owner?(article)
-    return 'd-flex' if !session[:current_user].nil? && !article.nil? &&
-                       session[:current_user]['id'] == article.author.id
-
-    'd-none'
+  def featured_image(article)
+    article.try(:image).try(:feature_show).try(:url)
   end
 
-  def article_image(article)
-    return article.image unless article.blank?
-
-    ''
+  def featured_content(article)
+    article.try { |a| a.text.truncate(100, separator: ' ', omission: '.... (continued)') }
   end
 
-  def article_blank?(categories, most_voted)
-    if !most_voted.blank?
-      render partial: 'index', locals: { categories: categories, most_voted: most_voted }
-    else
-      render partial: 'no-article', locals: {}
-    end
+  def number_of_votes(article)
+    pluralize(article.votes.size, 'vote')
   end
 
-  def articles_by_category(article, category, count)
-    if !article.blank?
-      render partial: 'categories/article-category',
-             locals: { category: category, article: article, count: count }
-    else
-      render partial: 'categories/no-article-category', locals: { category: category, count: count }
-    end
+  def author_name(article)
+    article.user.username
+  end
+
+  def latest_article_background(category)
+    category.articles.last.image if category.articles.any?
+  end
+
+  def featured_title_link(article)
+    link_to(featured_title(article), article_path(article), class: 'link-title') if article
   end
 end

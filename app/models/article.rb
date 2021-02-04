@@ -1,49 +1,22 @@
 class Article < ApplicationRecord
-  validates :author_id, :image, presence: true
-  validates :title, presence: true, length: { minimum: 10, maximum: 100 }
-  validates :text, presence: true, length: { minimum: 50, maximum: 1000 }
+  attr_accessor :category_id
+  belongs_to :user, class_name: 'User', foreign_key: 'author_id'
+  has_many :article_categories, foreign_key: 'article_id'
+  has_many :categories, through: :article_categories, dependent: :destroy
+  has_many :votes, foreign_key: 'article_id', class_name: 'Vote', dependent: :destroy
+  has_one_attached :image
+  validates_presence_of :title, :text, :author_id, :image
+  validates_length_of :title, :text, { minimum: 3 }
 
-  belongs_to :author, class_name: 'User'
-  has_many :votes, dependent: :destroy
+  def self.featured_article
+    return unless Vote.any?
 
-  has_many :article_categories, dependent: :destroy
-  has_many :categories, through: :article_categories, source: :category
-
-  def self.most_voted
-    if !Vote.all.blank?
-      top = joins(:votes).group(:article_id).count.max_by do |_k, v|
-        v
-      end[0]
-
-      Article.find(top)
-    else
-      Article.find(1)
-    end
+    # Find the article with highest vote
+    article_id = Vote.group(:article_id).count.max_by { |_k, v| v }.first
+    Article.find(article_id)
   end
 
-  def self.most_voted_by(user)
-    return nil if Article.find_by(author_id: user).blank?
-
-    user = User.find(user)
-    votes = user.articles.joins(:votes).group('articles.id')
-    top = votes.count.max_by do |_k, v|
-      v
-    end[0]
-
-    Article.find(top)
-  end
-
-  def self.most_recents
-    Article.order(created_at: :desc)
-  end
-
-  def self.search(title)
-    @articles = Article.where('lower(title) LIKE ?', "%#{title.downcase}%")
-    @articles = @articles.includes(:author, :article_categories, :categories).order(created_at: :desc)
-  end
-
-  def self.mine?(article_id, logged_user)
-    article = Article.find(article_id)
-    return true unless article.author.id != logged_user
+  def thumbnail
+    image.variant(resize: '390x280!').processed
   end
 end

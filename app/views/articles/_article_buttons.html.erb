@@ -1,5 +1,0 @@
-<%= render 'editbutton', article: article %>
-<%= link_to  "", action_vote(article),
-title: "#{message_vote(article)}", data: confirmation(article),
-class: "fa fa-thumbs-up #{class_voted(article)} #{allowed_to_vote?(article)}
-rounded-circle vote-link position-absolute" %>
