@@ -14,7 +14,7 @@ class VotesController < ApplicationController
         redirect_to @article, notice: 'You voted for an article'
         # render @article
       else
-        redirect_to request.referrer, alert: 'You unvoted an article'
+        redirect_to request.referrer, alert: 'You have canceled your vote for an article'
       end
 
     end
@@ -24,9 +24,9 @@ class VotesController < ApplicationController
     @vote = Vote.find_by(id: params[:id], user: @current_user, article_id: params[:article_id])
 
     if @vote.destroy
-      redirect_to request.referrer, notice: 'You unvoted an article'
+      redirect_to request.referrer, notice: 'You have canceled your vote an article'
     else
-      redirect_to request.referrer, alert: 'Cannot unvote without voting first!'
+      redirect_to request.referrer, alert: 'Cannot cancel vote without voting first!'
     end
   end
 end
