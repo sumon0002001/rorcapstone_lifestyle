@@ -2,24 +2,24 @@
 
 ![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
 
-# Life'n'Style app build in rails (users, articles, categories, vote and authentication)
+# LifeStyle app build in rails (users, articles, categories, vote and authentication)
 
 The project is  build for the Ruby on Rails capstone and based on lifestyle articles website.
 
 - The user logs in to the app, only by typing the username and password
 
-> In this project, i built a `LifeStyle` app following the [Microverse](https://www.notion.so/Lifestyle-articles-b82a5f10122b4cec924cd5d4a6cf7561).<br>
+
 
 ## ![screenshot](app/assets/images/life-n-style.png)
 
 ## Video Presentation:
 
-[Watch life'n'style](https://www.loom.com/share/40606e58c8d94ecb998cb7d7c0b1226f)
+[Watch life'n'style]()
 
 
 ## Link to Live host:
 
-[Life'n'Style](https://lyfenstyle.herokuapp.com/)
+[Life'n'Style]()
 
 ## Built With
 
@@ -75,22 +75,24 @@ You can navigate to `http://localhost:3000/` to see your application running<br>
 
 ## Authors
 
-👤 **Marshall Akpan**
 
-- Github: [uimarshall](https://github.com/uimarshall)
-- Twitter: [uimarshall](https://twitter.com/uimarshall)
-- Linkedin: [Marshall Akpan](https://www.linkedin.com/in/marshall-akpan-19745526/)
+👤 **Mir Rawshan Ali**
+
+- GitHub: [@sumon0002009](https://github.com/sumon0002001)
+- Twitter: [@sumon0002009](https://twitter.com/Sumon0002009)
+- LinkedIn: [Mir Rawshan Ali](https://www.linkedin.com/in/mir-rawshan-ali-27b6a5198/)
+
 
 
 ## 🤝 Contributing
 
 Our favourite contributions are those that help us improve the project, whether with a contribution, an issue, or a feature request!
 
-Feel free to check the [issues page](https://github.com/uimarshall/rails-capstone-LifeStyles/issues) to either create an issue or help us out by fixing an existing one.
+Feel free to check the [issues page](https://github.com/sumon0002001/rorcapstone_lifestyle/issues) to either create an issue or help us out by fixing an existing one.
 
 ## Show your support
 
-If you've read this far....give us a ⭐️!
+If you've read this far....give me a ⭐️!
 
 ## :clap: Acknowledgements
 
@@ -102,5 +104,3 @@ If you've read this far....give us a ⭐️!
 ## 📝 License
 
 This project is licensed by Microverse and the Odin Project
-
-- ...
