@@ -8,12 +8,14 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category_articles = @category.articles.order('id DESC').limit(5)
+    @category_articles = @category.articles.order('id DESC').limit(4)
   end
 
   def new
     @category = Category.new
   end
+
+  def edit; end
 
   def create
     @category = Category.new(category_params)

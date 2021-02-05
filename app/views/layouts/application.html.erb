@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LifeStyle</title>
+    <title>Life'n'Style</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -14,7 +14,7 @@
     <%= render 'shared/navbar' %>
     <main class="container">
       <% if flash[:notice] %>
-        <p class="alert alert-success">
+        <p class="alert alert-info">
           <%= flash[:notice] %>
         </p>
       <% end %>

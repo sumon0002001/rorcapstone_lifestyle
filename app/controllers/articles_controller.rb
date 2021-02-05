@@ -6,23 +6,23 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @featured = Article.featured_article
-    @categories = Category.order(:priority).limit(5).includes(:articles)
+    @categories = Category.order(:priority).limit(4).includes(:articles)
   end
 
   def new
     @article = Article.new
   end
 
-  def edit; 
-  end
+  def edit; end
 
   def create
     @article = @current_user.articles.build(article_params)
 
     respond_to do |format|
       if @article.save
+        # Create article-categories using the category_id and article_id saved
         ArticleCategory.create(category_id: article_params[:category_id], article_id: @article.id)
-        format.html { redirect_to @article, notice: 'Article is successfully created.' }
+        format.html { redirect_to @article, notice: 'Article was successfully created.' }
       else
         format.html { render :new }
       end
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
         article_category = ArticleCategory.where(article_id: @article.id)
         article_category[0].category_id = article_params[:category_id]
         article_category[0].save
-        format.html { redirect_to @article, notice: 'Article is successfully updated.' }
+        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article is successfully deleted.' }
+      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
     end
   end
 

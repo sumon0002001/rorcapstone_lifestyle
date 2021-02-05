@@ -18,7 +18,7 @@
           <%= form_with(url: article_vote_path(@article.id), method: :delete) do |form| %>
             <input type="hidden" name="article_id" value=<% @article.id %>>
             <div class="actions">
-              <%= form.submit "Cancel_vote", class: 'btn btn-danger' %>
+              <%= form.submit "UnVote", class: 'btn btn-danger' %>
             </div>
           <% end %>
         <% else %>

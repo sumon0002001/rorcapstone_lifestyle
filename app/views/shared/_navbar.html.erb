@@ -9,7 +9,7 @@
     <ul class="navbar-nav ml-auto">
       <%= nav_items(@nav_categories) %>
     </ul>
-    <form class="form-inline my-3 my-lg-0 ml-auto">
+    <form class="form-inline my-2 my-lg-0 ml-auto">
       <% if @current_user.nil? %>
         <%= link_to "Sign In",  sessions_path, class: "nav-link  my-2 my-sm-0 " %>|
         <%= link_to "Register",   new_user_path, class: "nav-link  my-2 my-sm-0" %>
