@@ -6,14 +6,12 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @featured = Article.featured_article
-    @categories = Category.order(:priority).limit(4).includes(:articles)
+    @categories = Category.order(:priority).limit(6).includes(:articles)
   end
 
   def new
     @article = Article.new
   end
-
-  def edit; end
 
   def create
     @article = @current_user.articles.build(article_params)
