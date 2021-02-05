@@ -17,6 +17,6 @@ class Article < ApplicationRecord
   end
 
   def thumbnail
-    image.variant(resize: '390x280!').processed
+    image.variant(resize: '290x280!').processed
   end
 end

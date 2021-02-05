@@ -18,9 +18,8 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        # Create article-categories using the category_id and article_id saved
         ArticleCategory.create(category_id: article_params[:category_id], article_id: @article.id)
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to @article, notice: 'Article is created successfully' }
       else
         format.html { render :new }
       end
@@ -33,7 +32,7 @@ class ArticlesController < ApplicationController
         article_category = ArticleCategory.where(article_id: @article.id)
         article_category[0].category_id = article_params[:category_id]
         article_category[0].save
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to @article, notice: 'Article is updated successfully.' }
       else
         format.html { render :edit }
       end
@@ -43,7 +42,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to articles_url, notice: 'Article is succesfully deleted.' }
     end
   end
 

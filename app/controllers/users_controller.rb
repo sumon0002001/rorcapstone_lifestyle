@@ -9,8 +9,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      # Save the user created to session for something later
-      # We call the key 'user_id' stored in the session hash
       session[:user_id] = @user.id
       session[:username] = @user.username
 

@@ -8,21 +8,22 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category_articles = @category.articles.order('id DESC').limit(4)
+    @category_articles = @category.articles.order('id DESC').limit(6)
   end
 
   def new
     @category = Category.new
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @category = Category.new(category_params)
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to @category, notice: 'Category is created successfully.' }
       else
         format.html { render :new }
       end
@@ -32,7 +33,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to @category, notice: 'Category is updated successfully.' }
       else
         format.html { render :edit }
       end
@@ -42,7 +43,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
+      format.html { redirect_to categories_url, notice: 'Category is deleted successfully.' }
     end
   end
 
