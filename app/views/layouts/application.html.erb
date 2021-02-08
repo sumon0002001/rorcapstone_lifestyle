@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lifestyle</title>
+    <title>LifeStyle</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="//fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <%= render 'shared/navbar' %>
+    <div class="container">
+      <% if flash[:notice] %>
+        <p class="alert alert-success">
+          <%= flash[:notice] %>
+        </p>
+      <% end %>
+    </div>
     <%= yield %>
+    <footer>
+      <%= render 'shared/footer' %>
+    </footer>
   </body>
 </html>
