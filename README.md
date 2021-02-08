@@ -10,16 +10,16 @@ The project is  build for the Ruby on Rails capstone and based on lifestyle arti
 
 
 
-## ![screenshot](app/assets/images/life-n-style.png)
+## ![screenshot]()
 
 ## Video Presentation:
 
-[Watch life'n'style]()
+[Watch lifestyle]()
 
 
 ## Link to Live host:
 
-[Life'n'Style]()
+[LifeStyle]()
 
 ## Built With
 
