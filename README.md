@@ -11,7 +11,7 @@ I build a website based on lifestyle articles.
 - The article page shows the content of an article.
 
 ## Project screenshot
-![screenshot](./screenshot.png)
+![screenshot](./img.png)
 
 ## 🔨 Built in
 
@@ -24,7 +24,7 @@ Our project can be found at https://github.com/sumon0002001/rorcapstone_lifestyl
 
 ## Live Demo
 
-You can find the demo [here]()
+You can find the demo [here](https://agile-falls-81971.herokuapp.com/)
 
 ## Video Link
 
