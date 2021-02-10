@@ -1,76 +1,65 @@
-# README
+# lifestyle-app
+I build a website based on lifestyle articles.
+- To use the app, you have to sign in or log in
+- Authenticated user:
+  - can create articles categories
+  - can create articles and link those articles to many categories
+  - can comment on article
+  - can vote an article
+- The homepage shows a featured article (who has the biggest number of votes), and the list of all the categories in order of priority
+- The category page show all the articles for a category
+- The article page shows the content of an article.
 
-![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
+## Project screenshot
+![screenshot](./screenshot.png)
 
-# LifeStyle app build in rails (users, articles, categories, vote and authentication)
+## 🔨 Built in
 
-The project is  build for the Ruby on Rails capstone and based on lifestyle articles website.
+- Ruby on Rails 6.0.3
+- Bootstrap 4
 
-- The user logs in to the app, only by typing the username and password
+## 🚀 Our Project
+
+Our project can be found at https://github.com/sumon0002001/rorcapstone_lifestyle
+
+## Live Demo
+
+You can find the demo [here]()
+
+## Video Link
+
+You can find the presentation [here]()
+
+## To run the project in local
+
+- clone the repository from here [repo link](https://github.com/sumon0002001/rorcapstone_lifestyle)
+- Open terminal and navigate to root folder (rorcapstone_lifestyle).
+- Once in root folder
+  - type: `rails s` in terminal and in browser
+  - run `bundle install`
+  - run `yarn install`
+  - run`rails db:create`
+  - run `rails db:migrate`
+  - type localhost:3000/ in address bar.
+
+## How to run the test suite
+
+We added validations and associations tests for User, Event and Attendance models.
+We added also integration tests for authentication and event creation
+Run these tests with those commands:
+
+### unit tests
+- `rspec spec/user_spec.rb`
+- `rspec spec/category_spec.rb`
+- `rspec spec/article_spec.rb`
+- `rspec spec/vote_spec.rb`
+- `rspec spec/organization_spec.rb`
+
+### integration tests
+- `rspec spec/features/authenticate_user_spec.rb`
+- `rspec spec/features/create_category_spec.rb`
 
 
-## Video Presentation:
-https://www.loom.com/share/21aa90eaba5c4eca8bf8bb7a0aa7d6b1
-[Watch life'n'style]()
-
-
-## Link to Live host:
-
-[Life'n'Style](https://calm-bastion-81388.herokuapp.com/)
-
-## Built With
-
-- Ruby
-- Ruby on Rails
-- Postgres
-- Rspec
-- Bootstrap
-- html
-- css
-
-## Extra Ruby gems
-
-- devise
-- shoulda
-
-## Deployed on:
-
-- Heroku
-
-## Feature upgrades:
-
-- Create the frontend where users can create and write an article.
-- signup and logout.
-
-## Prerequisities
-
-To get this project up and running locally, you must have ruby, sqlite3, postgress, yarn and node installed on your computer.
-
-## Getting Started
-
-**To get this project set up on your local machine, follow these simple steps:**
-
-**Step 1**<br>
-Navigate through the local folder where you want to clone the repository and run
-`git clone https://github.com/uimarshall/rails-capstone-LifeStyles.git`.<br>
-**Step 2**<br>
-Run `cd rails-capstone-LifeStyles`.<br>
-**Step 3**<br>
-Run `bundle install` to install the gems from the `Gemfile`.<br>
-**Step 4**<br>
-Run `yarn install` to install the packages from the `package.json` file.<br>
-**Step 5**<br>
-Run `rake db:create` to create your local database.
-**Step 6**<br>
-Run `rake db:migrate` to migrate your local database.
-**Step 7**<br>
-Run `rake db:seed` to migrate your local database.
-**Step 8**<br>
-Run `rails serve` to start the rails server.
-**Step 9**<br>
-You can navigate to `http://localhost:3000/` to see your application running<br>
-
-## Authors
 
 
 👤 **Mir Rawshan Ali**
@@ -81,23 +70,20 @@ You can navigate to `http://localhost:3000/` to see your application running<br>
 
 
 
+
+## Acknowledgement
+
+I have followed the 
+[design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) given by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) in Behance
+
 ## 🤝 Contributing
 
-Our favourite contributions are those that help us improve the project, whether with a contribution, an issue, or a feature request!
-
-Feel free to check the [issues page](https://github.com/sumon0002001/rorcapstone_lifestyle/issues) to either create an issue or help us out by fixing an existing one.
+Contributions, issues and feature requests are welcome!
 
 ## Show your support
 
-If you've read this far....give me a ⭐️!
-
-## :clap: Acknowledgements
-
-- Microverse
-- creativecommons
-- [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) on [Behance](https://www.behance.net/)
-
+Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is licensed by Microverse and the Odin Project
+This project is no licensed.

@@ -1,12 +1,9 @@
 class User < ApplicationRecord
-  has_secure_password
-  has_many :articles, class_name: 'Article', foreign_key: 'author_id'
-  has_many :votes, foreign_key: 'user_id', class_name: 'Vote', dependent: :destroy
-
-  validates :username,
-            presence: true,
-            length: { minimum: 3 },
-            uniqueness: { case_sensitive: false }
-
-  validates :password, length: { minimum: 6 }
+  has_many :articles, foreign_key: :author_id, class_name: 'Article'
+  has_many :votes, foreign_key: :user_id
+  has_many :voted_articles, through: :votes, source: :article
+  has_many :comments
+  validates_presence_of :name
+  validates_length_of :name, minimum: 4
+  validates :name, uniqueness: true
 end

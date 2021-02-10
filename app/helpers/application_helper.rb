@@ -1,16 +1,17 @@
 module ApplicationHelper
-  def nav_items(categories)
-    category_links = ''
-
-    categories.each do |category|
-      category_links << content_tag(:li, link_to(category.name.upcase, category_path(category),
-                                                 class: 'nav-link'))
+  def handle_vote(article)
+    if voted?(article)
+      content_tag(:p, 'You have already voted this article', class: 'font-weight-bold mt-3')
+    else
+      link_to 'Vote', add_vote_path(article_id: article.id),
+              class: 'text-center w-25 mt-3 mb-3 p-2 bg-acumin-color text-white rounded nav-link m-auto'
     end
+  end
 
-    if @current_user
-      category_links << content_tag(:li, link_to('WRITE AN ARTICLE', new_article_path, class: 'nav-link'))
-    end
+  def show_votes?(article)
+    return unless article.votes.count.positive?
 
-    category_links.html_safe
+    content_tag(:p, "#{article.votes.count} vote(s)",
+                class: 'w-50 m-auto font-weight-bold mt-3 alert alert-success rounded p-1')
   end
 end

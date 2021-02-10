@@ -1,56 +1,39 @@
 class CategoriesController < ApplicationController
-  include ActionController::Serialization
-  before_action :set_category, only: %i[show edit update destroy]
-  before_action :current_user
+  before_action :authorize, only: %i[index]
 
   def index
-    @categories = Category.all
-  end
-
-  def show
-    @category_articles = @category.articles.order('id DESC').limit(6)
+    @categories = Category.order('priority ASC').includes(:articles).select do |e|
+      e.articles.count.positive?
+    end
+    if Vote.count.positive?
+      @vote = Vote.all.group(:article_id).count.max_by { |_k, v| v }.first
+      @article = Article.find(@vote)
+    elsif Article.count.positive?
+      @article = Article.first
+    else
+      redirect_to new_category_path
+    end
   end
 
   def new
     @category = Category.new
   end
 
-  def edit; end
-
   def create
     @category = Category.new(category_params)
-
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to @category, notice: 'Category is created successfully.' }
-      else
-        format.html { render :new }
-      end
+    if @category.save
+      flash.notice = 'Category created!'
+      redirect_to root_path
+    else
+      render :new
     end
   end
 
-  def update
-    respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category is updated successfully.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  def destroy
-    @category.destroy
-    respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Category is deleted successfully.' }
-    end
+  def show
+    @category = Category.includes(articles: :author).find(params[:id])
   end
 
   private
-
-  def set_category
-    @category = Category.find(params[:id])
-  end
 
   def category_params
     params.require(:category).permit(:name, :priority)

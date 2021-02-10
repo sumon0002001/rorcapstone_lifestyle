@@ -1,11 +1,27 @@
-<div class="container mt-5 mb-4">
-  <h2 class="text-center h1 mb-3">Create New Category</h2>
-  <div class="row">
-    <div class="col-md-4 offset-4">
-      <%= render 'form', category: @category %>
-    </div>
+<div class="container-fluid welcome-form">
+  <div class="row h-100">
+    <%= form_for(@category, :html => {:class => 'col-12 col-md-4 m-md-auto p-0 bg-white text-dark rounded'}) do |f| %>
+        <% @category.errors.full_messages.each do |error| %>
+        <div class="alert alert-danger">
+          <%= error %>
+        </div>
+        <% end %>
+        <div class="p-3">
+          <strong><%= f.label :name, "Name" %></strong><br />
+          <div class="form-group mb-2">
+
+            <%= f.text_field :name, placeholder: "eg. programming", class: 'form-control' %><br>
+          </div>
+        </div>
+        <div class="p-3">
+          <strong><%= f.label :priority, "Order" %></strong><br />
+          <div class="form-group mb-2">
+
+            <%= f.number_field :priority, class: 'form-control' %><br>
+          </div>
+        </div>
+        <%= f.submit 'Create category', {:class => 'w-100 text-center text-uppercase bg-acumin-color p-3 text-white'} %>
+    <% end %>
+
   </div>
-</div>
-<div class="text-center mb-4">
-  <%= link_to 'Back To Categories', categories_path, class: 'btn btn-info' %>
 </div>

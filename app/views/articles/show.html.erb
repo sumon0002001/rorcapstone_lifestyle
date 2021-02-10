@@ -1,36 +1,41 @@
-<div class="container">
-  <h1 class="main-text-color text-center"><%= @article.title %></h1>
-  <div class="col-md-12">
-    <div class="col-md-6 mb-100 text-center mx-auto">
-      <p>Category: <%= @article.categories[0].name %></p>
-      <p>
-        <h6 class="main-text-color">
-          <%= number_of_votes(@article) %>
-          <span> for this article</span>
-        </h6>
-      </p>
-      <p class="text-center">
-        <%= image_tag(@article.image) %>
-      </p>
-      <p class="text-center"><%= @article.text %></p>
-      <div>
-        <% if Vote.find_by(user: @current_user, article: @article) %>
-          <%= form_with(url: article_vote_path(@article.id), method: :delete) do |form| %>
-            <input type="hidden" name="article_id" value=<% @article.id %>>
-            
-          <% end %>
-        <% else %>
-          <%= form_with(url: article_votes_path(@article.id)) do |form| %>
-            <input type="hidden" name="article_id" value=<% @article.id %>>
-            <% if logged_in? %>
-              <div class="actions">
-                <%= form.submit "Vote", class: 'btn btn-success' %>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-        <%= link_to 'Back To Articles', articles_path, class: 'btn btn-info mt-4' %>
-      </div>
+<div class="row featured-section">
+  <div class="col-12 p-0" style="background: url(<%= @article.image %>) center no-repeat; background-size: cover;">
+    <div class="gradient" href="#"></div>
+    <div class="featured-info pl-3 pb-2">
+      <h3 class="font-weight-bold acumin-color position-relative"><%= @article.title %></h3>
+    </div>
+  </div>
+</div>
+
+<div class="container content bg-white rounded article mt-3 mb-3">
+  <div class="row">
+    <p class="text-center col-12 mt-3">
+      <em>By <%= @article.author.name %></em>
+    </p>
+    <p class="col-12 mt-5 text-center">
+      <%= @article.text %>
+    </p>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <%= show_votes?(@article) %>
+      <%= handle_vote(@article) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center mt-5">
+      <h6 class="font-weight-bold">Comments</h6>
+    </div>
+    <%= render partial: 'articles/comment', collection: @article.comments %>
+
+
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= render partial: 'comments/form' %>
     </div>
   </div>
 </div>

@@ -1,36 +1,15 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-
-  helper_method :current_user, :logged_in?
-  before_action :set_nav_categories
-
-  def login(user)
-    session[:user_id] = user.id
-  end
-
   def current_user
-    if session[:id]
-      @current_user ||= User.find(session[:id])
-    else
-      @current_user = nil
-    end
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+  helper_method :current_user
 
-  def logout
-    session.delete(:user_id)
-    @current_user = nil
+  def voted?(article)
+    current_user.voted_articles.exists?(article.id)
   end
+  helper_method :voted?
 
-  def logged_in?
-    current_user.nil? ? false : true
-  end
-
-  def authenticate_user
-    flash[:alert] = 'Please log in'
-    redirect_to sessions_path if session[:id].nil?
-  end
-
-  def set_nav_categories
-    @nav_categories = Category.order(:priority).limit(6)
+  def authorize
+    redirect_to '/login' unless current_user
   end
 end
