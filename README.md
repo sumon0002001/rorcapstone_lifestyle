@@ -1,6 +1,6 @@
 # README
 
-![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
+ ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
 
 # LifeStyle app build in rails (users, articles, categories, vote and authentication)
 
@@ -9,17 +9,14 @@ The project is  build for the Ruby on Rails capstone and based on lifestyle arti
 - The user logs in to the app, only by typing the username and password
 
 
-
-## ![screenshot](app/assets/images/life-n-style.png)
-
 ## Video Presentation:
-
+https://www.loom.com/share/21aa90eaba5c4eca8bf8bb7a0aa7d6b1
 [Watch life'n'style]()
 
 
 ## Link to Live host:
 
-[Life'n'Style]()
+[Life'n'Style](https://calm-bastion-81388.herokuapp.com/)
 
 ## Built With
 
