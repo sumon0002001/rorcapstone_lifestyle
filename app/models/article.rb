@@ -1,22 +1,14 @@
 class Article < ApplicationRecord
-  attr_accessor :category_id
-  belongs_to :user, class_name: 'User', foreign_key: 'author_id'
-  has_many :article_categories, foreign_key: 'article_id'
-  has_many :categories, through: :article_categories, dependent: :destroy
-  has_many :votes, foreign_key: 'article_id', class_name: 'Vote', dependent: :destroy
-  has_one_attached :image
-  validates_presence_of :title, :text, :author_id, :image
-  validates_length_of :title, :text, { minimum: 3 }
+  belongs_to :author, class_name: 'User'
+  has_many :votes, foreign_key: :article_id
+  has_many :voters, through: :votes, source: :user
+  has_many :organizations, foreign_key: :article_id, inverse_of: :article
+  has_many :categories, through: :organizations
+  has_many :comments
 
-  def self.featured_article
-    return unless Vote.any?
-
-    # Find the article with highest vote
-    article_id = Vote.group(:article_id).count.max_by { |_k, v| v }.first
-    Article.find(article_id)
-  end
-
-  def thumbnail
-    image.variant(resize: '290x280!').processed
-  end
+  validates_presence_of :title
+  validates_length_of :title, minimum: 4
+  validates_presence_of :text
+  validates_length_of :title, minimum: 4
+  validates_presence_of :image
 end
