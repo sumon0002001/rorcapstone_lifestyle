@@ -4,7 +4,7 @@ class VotesController < ApplicationController
   def add_vote
     @article = Article.find(params[:article_id])
     current_user.votes.create(article: @article)
-    flash.notice = 'Vote added!'
+    flash.notice = 'Thank you for your voting!!'
     redirect_back(fallback_location: root_path)
   end
 end

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LifestyleApp</title>
+    <title>Lifestyle</title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -22,7 +22,7 @@
         <ul class="navbar-nav flex-row align-items-center navbar-desktop">
           <li class="nav-item ml-3">
             <h3 class="font-weight-bold">
-              <a class="acumin-gray-color" href="/">liFEsTlye</a>
+              <a class="acumin-gray-color" href="/">Lifestyle</a>
             </h3>
           </li>
         </ul>
@@ -35,22 +35,17 @@
             </a>
           </li>
           <li class="nav-item">
-            <%= link_to "Create Article", new_article_path, class: "p-2 bg-acumin-color text-white rounded nav-link" %>
+            <%= link_to "Create Article", new_article_path, class: "p-2 nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Create Category", new_category_path, class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              <i class="far fa-user-circle"></i>
-            </a>
-            <div class="dropdown-menu">
-              <%= link_to "Logout", "/logout", class: "nav-link text-dark"%>
-            </div>
+          <li class="nav-item ">
+            <%= link_to "Logout", "/logout", class: "nav-link text-dark"%>
           </li>
           <% else %>
           <li class="nav-item">
-            <%= link_to "Sign Up", new_user_path, class: "nav-link text-dark" %>
+            <%= link_to "Registration", new_user_path, class: "nav-link text-dark" %>
           </li>
           <li class="nav-item">
             <%= link_to "Sign In", "/login", class: "nav-link text-dark" %>
@@ -66,7 +61,7 @@
           </li>
           <li class="nav-item ml-3">
             <h3 class="acumin-gray-color font-weight-bold">
-              <a class="acumin-gray-color" href="/">liFEsTlye</a>
+              <a class="acumin-gray-color" href="/">Lifestyle</a>
             </h3>
           </li>
           <li class="nav-item">
@@ -81,7 +76,7 @@
       <% if flash[:notice] %>
       <div class="row status">
         <div class="col-12">
-          <div class="alert alert-success mr-auto ml-auto w-50 mt-3">
+          <div class="alert alert-info mr-auto ml-auto w-50 mt-3">
             <strong><%= notice %></strong>
           </div>
         </div>
@@ -128,7 +123,7 @@
           <ul class="row">
             <li class="nav-item col-12 col-md-4">
               <h3 class="text-white font-weight-bold">
-                <a class="text-white" href="/">liFEsTlye</a>
+                <a class="text-white" href="/">Lifestyle</a>
               </h3>
             </li>
             <li class="nav-item col-12 col-md-4">
@@ -139,7 +134,7 @@
                 Terms & conditions
               </a>
               <p class="text-white">
-                Copyright 2014. All rights reserved
+                Copyright 2021. All rights reserved
               </p>
             </li>
             <li class="nav-item col-12 col-md-4">

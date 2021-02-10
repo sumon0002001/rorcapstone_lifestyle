@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash.notice = 'Category created!'
+      flash.notice = 'A new Category is created...'
       redirect_to root_path
     else
       render :new

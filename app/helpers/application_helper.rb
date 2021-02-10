@@ -4,7 +4,7 @@ module ApplicationHelper
       content_tag(:p, 'You have already voted this article', class: 'font-weight-bold mt-3')
     else
       link_to 'Vote', add_vote_path(article_id: article.id),
-              class: 'text-center w-25 mt-3 mb-3 p-2 bg-acumin-color text-white rounded nav-link m-auto'
+              class: 'text-center w-25 mt-3 mb-3 p-2 bg-info text-white rounded nav-link m-auto'
     end
   end
 

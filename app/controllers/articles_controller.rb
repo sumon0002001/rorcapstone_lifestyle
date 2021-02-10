@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      flash.notice = 'Article created!'
+      flash.notice = 'A new article is published'
       redirect_to root_path
     else
       render :new

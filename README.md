@@ -1,5 +1,5 @@
 # lifestyle-app
-We had to build a website based on lifestyle articles.
+I build a website based on lifestyle articles.
 - To use the app, you have to sign in or log in
 - Authenticated user:
   - can create articles categories
@@ -20,20 +20,20 @@ We had to build a website based on lifestyle articles.
 
 ## 🚀 Our Project
 
-Our project can be found at https://github.com/daviidy/lifestyle-app
+Our project can be found at https://github.com/sumon0002001/rorcapstone_lifestyle
 
 ## Live Demo
 
-You can find the demo [here](https://morning-spire-14613.herokuapp.com/)
+You can find the demo [here]()
 
 ## Video Link
 
-You can find the presentation [here](https://www.loom.com/share/bc2e1207d8ae42dcaaa95d8f2e45c3aa)
+You can find the presentation [here]()
 
 ## To run the project in local
 
-- clone the repository from here [repo link](https://github.com/daviidy/lifestyle-app)
-- Open terminal and navigate to root folder (/lifestyle-app).
+- clone the repository from here [repo link](https://github.com/sumon0002001/rorcapstone_lifestyle)
+- Open terminal and navigate to root folder (rorcapstone_lifestyle).
 - Once in root folder
   - type: `rails s` in terminal and in browser
   - run `bundle install`
@@ -60,15 +60,21 @@ Run these tests with those commands:
 - `rspec spec/features/create_category_spec.rb`
 
 
-## 👨🏽‍💻 👨🏿‍💻 Creator
 
-👤 **David YAO**
 
-- Github: [@daviidy](https://github.com/daviidy)
+👤 **Mir Rawshan Ali**
+
+- GitHub: [@sumon0002009](https://github.com/sumon0002001)
+- Twitter: [@sumon0002009](https://twitter.com/Sumon0002009)
+- LinkedIn: [Mir Rawshan Ali](https://www.linkedin.com/in/mir-rawshan-ali-27b6a5198/)
+
+
+
 
 ## Acknowledgement
 
-I have followed the [design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) given by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) in Behance
+I have followed the 
+[design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) given by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) in Behance
 
 ## 🤝 Contributing
 
