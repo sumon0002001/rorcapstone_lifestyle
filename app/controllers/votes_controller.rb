@@ -10,7 +10,7 @@ class VotesController < ApplicationController
       @vote = @current_user.votes.new(article_id: params[:article_id])
 
       if @vote.save
-       redirect_to @article, notice: 'You voted for an article'
+        redirect_to @article, notice: 'You voted for an article'
       else
         redirect_to request.referrer, alert: 'You cancel vote for an article'
       end

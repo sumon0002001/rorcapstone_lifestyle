@@ -1,6 +1,6 @@
 # README
 
- ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
+![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
 
 # LifeStyle app build in rails (users, articles, categories, vote and authentication)
 
