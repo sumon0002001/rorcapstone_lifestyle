@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'selenium/webdriver'
 
 RSpec.describe 'Sign In a user', type: :feature do
   let!(:user) { User.create(name: 'test') }
