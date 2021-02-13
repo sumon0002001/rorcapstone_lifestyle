@@ -25,8 +25,4 @@ module ApplicationHelper
       content_tag(:li, link_to("Registration", new_user_path, class: "nav-link text-dark")) + " ".html_safe 
     end
   end
-
-  def flash
-
-  end
 end
