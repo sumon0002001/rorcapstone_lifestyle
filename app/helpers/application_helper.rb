@@ -1,3 +1,4 @@
+# rubocop:disable Style/MultilineOperationIndentation
 module ApplicationHelper
   def handle_vote(article)
     if voted?(article)
@@ -17,9 +18,7 @@ module ApplicationHelper
 
   def login_helper(_style ='')
     if current_user
-      content_tag(:li, 
-        link_to('CreateArticle', new_article_path, 
-        class: 'nav-link')) + ' '.html_safe +
+      content_tag(:li, link_to('CreateArticle', new_article_path, class: 'nav-link')) + ' '.html_safe +
       content_tag(:li, link_to('CreateCategory', new_category_path, class: 'nav-link')) + ' '.html_safe +
       content_tag(:li, link_to('LogOut', '/logout', class: 'nav-link text-dark'))
     else
@@ -28,3 +27,4 @@ module ApplicationHelper
     end
   end
 end
+# rubocop:enable Style/MultilineOperationIndentation
