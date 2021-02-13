@@ -20,7 +20,7 @@ I build a website based on lifestyle articles.
 
 ## 🚀 Our Project
 
-Our project can be found at https://github.com/sumon0002001/rorcapstone_lifestyle
+My project can be found at https://github.com/sumon0002001/rorcapstone_lifestyle
 
 ## Live Demo
 
@@ -44,8 +44,8 @@ You can find the presentation [here](https://www.loom.com/share/bbea73c1085e4edf
 
 ## How to run the test suite
 
-We added validations and associations tests for User, Event and Attendance models.
-We added also integration tests for authentication and event creation
+I added validations and associations tests for User, Event and Attendance models.
+I added also integration tests for authentication and event creation
 Run these tests with those commands:
 
 ### unit tests

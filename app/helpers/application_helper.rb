@@ -18,14 +18,11 @@ module ApplicationHelper
   def login_helper(_style='')
     if current_user
       content_tag(:li, link_to('CreateArticle', new_article_path, class: 'nav-link')) + ' '.html_safe +
-      content_tag(:li, link_to('CreateCategory', new_category_path, 
-                                class: 'nav-link')) + ' '.html_safe +
-      content_tag(:li, link_to('LogOut', '/logout', 
-                                class: 'nav-link text-dark'))
+      content_tag(:li, link_to('CreateCategory', new_category_path, class: 'nav-link')) + ' '.html_safe +
+      content_tag(:li, link_to('LogOut', '/logout', class: 'nav-link text-dark'))
     else
       content_tag(:li, link_to('Sign In','/login', class: 'nav-link text-dark')) + ' '.html_safe +
-      content_tag(:li,  link_to('Registration',  new_user_path,  
-                                 class: 'nav-link text-dark')) + ' '.html_safe
+      content_tag(:li,  link_to('Registration', new_user_path, class: 'nav-link text-dark')) + ' '.html_safe
     end
   end
 end
