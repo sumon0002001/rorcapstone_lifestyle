@@ -28,7 +28,7 @@ You can find the demo [here](https://agile-falls-81971.herokuapp.com/)
 
 ## Video Link
 
-You can find the presentation [here](https://www.loom.com/share/779243ec95604afbbc28b7d451d74d00)
+You can find the presentation [here](https://www.loom.com/share/bbea73c1085e4edfa17b1e5f8c9542cb)
 
 ## To run the project in local
 
