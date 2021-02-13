@@ -16,7 +16,7 @@ module ApplicationHelper
                 class: 'w-50 m-auto font-weight-bold mt-3 alert alert-success rounded p-1')
   end
 
-  def login_helper(_style ='')
+  def login_helper(_style = '')
     if current_user
       content_tag(:li, link_to('CreateArticle', new_article_path, class: 'nav-link')) + ' '.html_safe +
       content_tag(:li, link_to('CreateCategory', new_category_path, class: 'nav-link')) + ' '.html_safe +
