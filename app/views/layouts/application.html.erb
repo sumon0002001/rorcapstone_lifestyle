@@ -2,14 +2,79 @@
 <html>
   <head>
     <title>Lifestyle</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= stylesheet_link_tag "https://use.typekit.net/coi1grn.css" %>
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" %>
+    <%=javascript_include_tag "https://kit.fontawesome.com/d86848cfe0.js"  %>
 
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
   <body>
-    <%= yield %>
+    <div class="container-fluid content">
+    <%= render 'sessions/navbar' %>
+  
+    
+        <%= yield %>
+    </div>
+    <main id="page-container">
+      <footer class="bg-acumin-gray-color container-fluid">
+        <ul class="row">
+          <li class="nav-item col-12 col-md-4">
+            <h3 class="text-white font-weight-bold">
+              <a class="text-white" href="/">Lifestyle</a>
+            </h3>
+          </li>
+          <li class="nav-item col-12 col-md-4">
+            <a href="nav-item">
+              Privacy Policy
+            </a>
+            <a href="nav-item">
+              Terms & conditions
+            </a>
+            <p class="text-white">
+              Copyright 2021. All rights reserved
+            </p>
+            </li>
+            <li class="nav-item col-12 col-md-4">
+              <div class="row d-flex justify-content-end">
+                <div class="col-1">
+                  <i class="fab fa-facebook acumin-color"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fab fa-twitter-square acumin-color"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fab fa-instagram-square acumin-color"></i>
+                </div>
+              </div>
+            </li>
+          </ul>
+      </footer>
+    </main>
+
+    <%=javascript_include_tag "https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"  %>
+
+    <script>
+      $( document ).ready(function() {
+        $('.hamburger').click(function() {
+          console.log('dave');
+          if ($(window).width() < 768) {
+            $('.side-menu').toggleClass('d-none');
+            $('#overlay').fadeToggle(300);
+          }
+        });
+      });
+
+
+      $(document).ready(function() {
+          $('.js-example-basic-multiple').select2();
+      });
+
+    </script>
   </body>
 </html>

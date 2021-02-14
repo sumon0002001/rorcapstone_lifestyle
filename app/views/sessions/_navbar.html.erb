@@ -1,0 +1,62 @@
+<header>
+      <!-- desktop nav -->
+      <nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top first-nav">
+        <ul class="navbar-nav flex-row align-items-center navbar-desktop">
+          <li class="nav-item ml-3">
+            <h3 class="font-weight-bold">
+              <a class="acumin-gray-color" href="/">Lifestyle</a>
+            </h3>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto align-items-center">
+        <li class="nav-item">
+          <a href="/" class="p-2 text-dark nav-link pl-3">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+        <%=login_helper 'nav-link'%>
+        </li>
+        </ul>
+      </nav>
+      <!-- mobile nav -->
+      <nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top d-md-none">
+        <ul class="navbar-nav flex-row align-items-center w-100 d-flex justify-content-between">
+          <li class="nav-item">
+            <i class="fas fa-bars hamburger acumin-gray-color"></i>
+          </li>
+          <li class="nav-item ml-3">
+            <h3 class="acumin-gray-color font-weight-bold">
+              <a class="acumin-gray-color" href="/">Lifestyle</a>
+            </h3>
+          </li>
+          <li class="nav-item">
+            <a href="#">
+              <i class="fas fa-search hamburger acumin-gray-color"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="page-container">
+      <% if flash[:notice] %>
+        <div class="row status">
+         <div class="col-12">
+          <div class="alert alert-info mr-auto ml-auto w-50 mt-3">
+            <strong><%= notice %></strong>
+          </div>
+         </div>
+        </div>
+      <% end %>
+      <div class="row">
+          <nav class="col-6 navbar bg-acumin-gray-color side-menu d-none">
+            <ul class="navbar-nav text-white">
+            <li class="nav-item">
+            <%=login_helper 'nav-link'%>
+            </li>
+            </ul>
+          </nav>
+          <div id="overlay"></div>
+        </div>
+    </main>
+    
